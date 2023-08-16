@@ -2,11 +2,9 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div>
-        <h1 className='bg-yellow-400 absolute top-0'>HELLO FROM HEADER!</h1>
+    <div className='w-screen bg-slate-950 flex h-16'>
+        <h1 className=' my-auto mx-auto'>HELLO FROM HEADER!</h1>
     </div>
-
   )
 }
-
 export default Header

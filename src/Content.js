@@ -7,8 +7,8 @@ const Content = () => {
         return name[list]
       }
   return (
-    <div>
-        <p className=' absolute top-10'>Let's {handelnamechanger()}</p>
+    <div className='h-5/6 flex bg-red-600 w-1/2 mx-auto'>  
+    <p className='w-full my-auto text-center'>Let's{handelnamechanger()}</p>
     </div>
   )
 }
