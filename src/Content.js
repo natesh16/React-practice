@@ -1,5 +1,4 @@
 import React from 'react'
-
 const Content = () => {
     function handelnamechanger(){
         const name=["Earn","Work","Play With Code"]
@@ -12,5 +11,4 @@ const Content = () => {
     </div>
   )
 }
-
 export default Content
