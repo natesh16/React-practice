@@ -1,24 +1,27 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 const Content = () => {
     function handelnamechanger(){
         const name=["Earn","Work","Play With Code"]
         const list =Math.floor(Math.random()*3);
         return name[list]
       }
-const handelclick=()=>{
-  console.log("WELL DONE!")
-}  
+      const [count,setcount]=useState(0)
 
-const handelclick2=(name)=>{
-  console.log(`WELL DONE! ${name}`)
-}  
+        function handleincrement(){
+          setcount(count +1)
+        }
+        function handledecremen(){
+          setcount(count -1)
+        }
 
   return (
     <div className='w-1/2 bg-blue-600 h-5/6 mx-auto'>
-      <div className='flex flex-col'>
-        <p className='my-auto mx-auto text-black text-6xl  font-bold text-center'>Let's {handelnamechanger()}</p>
-        <button onClick={()=>handelclick2("Natesh")}> click Here</button>
+      <div className='flex h-full'>
+        <div className=' mx-auto my-auto'>
+            <button className='rounded-lg bg-black px-5 py-2' onClick={handledecremen}>-</button>
+            <span className='p-3 text-2xl font-blod bg-red-400 m-5'>{count}</span>
+            <button className='rounded-lg bg-black px-5 py-2' onClick={ handleincrement}>+</button>
+        </div>
       </div>
     </div>
   )
