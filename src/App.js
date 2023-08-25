@@ -4,7 +4,7 @@ import Footer from './Footer';
 import Header from './Header';
 function App() {
   return (
-    <div>
+    <div className='text-black dark:text-white '>
       <Header/>
       <Content/>
       <Footer/>
