@@ -1,33 +1,33 @@
 import React, { useState } from 'react'
 const Content = () => {
-    const [text,setext]=useState("Move")
-    function handelramdom(){
-        const name=["Go!","Earn","Grow"]
-        const int=Math.floor(Math.random()*3)
-        setext(name[int]);
-    }
-    const [count,setcount]=useState(0)
-    function handelincrement(){
-        setcount(count+1)
-    }
-    function handeldecrement(){
-        setcount(count-1)
-    }
+
+    const [items, setitems]=useState(
+        [
+            {   id:1,
+            checked:true,
+            item:"Pratice code"
+        },
+        {   id:2,
+            checked:false,
+            item:"Drawing"
+        },
+        {   id:3,
+            checked:true,
+            item:"Make somethink new"}
+        ])
   return (
-      <main className="w-screen h-5/6 flex flex-col">
-        <div className=' bg-gray-500 h-full flex flex-col'>
-            <div className='first-letter: mx-auto flex flex-col my-auto w-full'>
-                <div className='mx-auto flex flex-row'>
-                    <button onClick={handeldecrement} className=" bg-red-600 my-auto h-10 text-3xl w-10 rounded-lg ">-</button>
-                    <p className='text-3xl text-center w-20'>{count}</p>
-                    <button onClick={handelincrement} className="bg-green-700 my-auto h-10 w-10 text-3xl rounded-lg ">+</button>
-                </div>
-            <div className=' flex my-5 flex-col float-none'>
-                <p className='w-screen text-center mx-auto text-3xl'>Let's {text}</p>
-                <button className='mx-auto w-36 h-10 mt-5 rounded-2xl bg-black ' onClick={handelramdom}>Click to change</button>
-            </div>
-            </div>
-        </div>
+      <main className="text-white h-5/6 ">
+        <ul className='flex flex-col w-1/2 mx-auto h-full'>
+            {items.map((item)=>(
+                <li className='text-center my-auto justify-center mx-28 flex h-20 text-white'>
+                    <input type="checkbox" className=' my-auto h-16 w-16'
+                        checked={item.checked}
+                        />
+                     <label className='text-2xl my-auto mx-auto  '>{item.item}</label>
+                     <button className=' bg-red-400 w-20 my-auto rounded-3xl h-10'>Delect</button>
+                </li>
+            ))}
+        </ul>
     </main>
   )
 }
