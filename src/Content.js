@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { FaTrashRestore } from "react-icons/fa";
 const Content = () => {
 
     const [items, setitems]=useState(
@@ -13,7 +14,7 @@ const Content = () => {
         },
         {   id:3,
             checked:true,
-            item:"Make somethink new"}
+            item:"Make somethink new"} 
         ])
   return (
       <main className="text-white h-5/6 ">
@@ -24,7 +25,7 @@ const Content = () => {
                         checked={item.checked}
                         />
                      <label className='text-2xl my-auto mx-auto  '>{item.item}</label>
-                     <button className=' bg-red-400 w-20 my-auto rounded-3xl h-10'>Delect</button>
+                     <button className=' my-auto rounded-full text-4xl p-3 bg-red-600 '><FaTrashRestore/></button>
                 </li>
             ))}
         </ul>
