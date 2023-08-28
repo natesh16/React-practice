@@ -21,6 +21,13 @@ const Content = () => {
             )
             setitems(listitems)
         }
+        const handeldelect=(id)=>{
+            const delectitems=items.filter((item)=>
+                item.id!==id)
+                setitems(delectitems)
+            
+        }
+    
   return (
       <main className="text-white h-5/6 ">
         <ul className='flex flex-col w-1/2 mx-auto h-full'>
@@ -31,8 +38,9 @@ const Content = () => {
                         checked={item.checked}
                         />
                      <label className='text-2xl my-auto mx-auto  '>{item.item}</label>
-                     <div className=' my-auto rounded-full text-4xl p-3 bg-red-600 '><FaTrashRestore
-                        className=' border-none outline-none'
+                     <div className=' my-auto rounded-full text-4xl p-3 bg-green-400 hover:bg-red-600 '><FaTrashRestore
+                        onClick={()=>handeldelect(item.id)}
+                      className=' border-none outline-none'
                     role="button"
                     tabIndex="0"
                      /></div>
