@@ -2,7 +2,7 @@ import Content from './Content';
 import Footer from './Footer';
 import Header from './Header';
 import React, { useState } from 'react'
-
+import Additem from "./Additem";
 
 function App() {
 
@@ -39,6 +39,7 @@ function App() {
   return (
     <div className='text-black dark:text-white '>
       <Header title="NATESH.ORG" />
+      <Additem/>
       <Content 
       items={items}
       handelDelect={handelDelect}
