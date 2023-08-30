@@ -6,6 +6,8 @@ import Additem from "./Additem";
 
 function App() {
 
+  const [newitems,setnewitems]=useState("")
+
   const [items, setitems]=useState(
     [
         {   id:1,
@@ -36,10 +38,18 @@ function App() {
         
     }
 
+    const handelsubmit=(Text)=>{
+      console.log("handel submit call")
+    }
+
   return (
     <div className='text-black dark:text-white '>
       <Header title="NATESH.ORG" />
-      <Additem/>
+      <Additem
+        newitems={newitems}
+        setnewitems={setnewitems}
+        handelsubmit={handelsubmit}
+      />
       <Content 
       items={items}
       handelDelect={handelDelect}
