@@ -2,7 +2,7 @@ import Content from './Content';
 import Footer from './Footer';
 import Header from './Header';
 import React, { useState } from 'react'
-import Additem from "./Additem";
+import Additem from './Additem';
 
 function App() {
 
@@ -22,6 +22,14 @@ function App() {
         checked:true,
         item:"Make somethink new"} 
     ])
+    
+    const addnewitem=(item)=>{
+      const id=items.length ? items[items.length -1].id + 1 : 1
+      const addnewitems={id,checked:false,item}
+      const listnewitems={...item,addnewitems}
+      setitems(listnewitems)
+      localStorage.setItem("Todo-List",JSON.stringify(listnewitems)) 
+    }
     const handleCheck=(id)=>{
         const listitems=items.map((item)=>
             item.id===id ? {...item,checked:!item.checked}:item
@@ -39,7 +47,12 @@ function App() {
     }
 
     const handelsubmit=(Text)=>{
-      console.log("handel submit call")
+      Text.preventDefalt()
+      if (!newitems) return;
+      //addnewitmes 
+      addnewitem(newitems)
+      setnewitems('')
+
     }
 
   return (
