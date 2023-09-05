@@ -3,7 +3,7 @@ import Items from "./Items";
 
 const Content = ({items,handleCheck,handelDelect}) => {
     return (
-      <main className="text-white max-h-screen h-2/3 flex bg-slate-950">
+      <main className="text-white max-h-screen h-1/2 flex bg-slate-950">
            {(items.length)?(
         <Items
         items={items}

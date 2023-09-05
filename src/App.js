@@ -53,7 +53,7 @@ function App() {
     }
 
   return (
-        <div className='text-black dark:text-white '>
+        <div className='text-black dark:text-white absolute'>
           <Header title="NATESH.ORG" />
           <Additem
             newitems={newitems}
