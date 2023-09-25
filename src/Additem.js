@@ -1,10 +1,9 @@
-import React, { useRef } from 'react'
+import React from 'react';
 import { IoIosAddCircle } from "react-icons/io";
 import { useRef } from 'react';
 
-const inputref=useref();
-
 const Additem = ({newitems,setnewitems,handelsubmit}) => {
+  const inputref= useRef()
   return (
     <form action="#" onSubmit={handelsubmit}>
       <div className='w-screen h-16 flex mt-5 justify-center'>
