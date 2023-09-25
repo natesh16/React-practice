@@ -28,6 +28,7 @@ function App() {
   //Array for search items
   const [search, setsearch] = useState('')
 
+  const API_ADD="  http://localhost:3500/items"
 
   const addnewitem = (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
@@ -57,8 +58,21 @@ function App() {
   }
 
   useEffect(() => {
-    JSON.parse(localStorage.getItem('Todo-List'))
+    
+    const feacting=async()=>{
+      try{
+        const responce=await fetch(API_ADD)
+        const listitems=await responce.json()
+        setitems(listitems)
+      }
+      catch(err){
+        console.log(err.stack)
+      }
+    }
+    (async ()=>await feacting())()
   }, [])
+
+
   return (
     <div className='text-black dark:text-white absolute bg-slate-950'>
       <Header title="NATESH.ORG" />
