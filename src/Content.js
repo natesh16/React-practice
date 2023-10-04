@@ -3,7 +3,7 @@ import Items from "./Items";
 
 const Content = ({items,handleCheck,handelDelect}) => {
     return (
-      <main className="text-white h-full  flex bg-slate-950">
+      <>
            {(items.length)?(
         <Items
         items={items}
@@ -12,10 +12,12 @@ const Content = ({items,handleCheck,handelDelect}) => {
         />
       ):
         (
+          <div className="text-white h-full  flex bg-slate-950">
             <p className='mx-auto my-auto text-4xl font-bold'>YOUR LIST IS EMPTY</p>
+          </div>
         )
     }
-    </main>
+    </>
   )
 }
 export default Content
