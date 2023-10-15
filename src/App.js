@@ -80,7 +80,7 @@ function App() {
    if(result) setfeacherr(result);
   }
 
-  //Handing system
+  //Handeling Submit System
   const handelsubmit = (e) => {
     e.preventDefault()
     if (!newitems) return;
@@ -88,12 +88,13 @@ function App() {
     setnewitems('')
   }
 
+    //Handeling check system
   const handleCheck = (id) => {
-    const listitems = items.map((item) =>
-      item.id === id ? { ...item, checked: !item.checked } : item)
+    const listitems = items.map((item) =>item.id === id ? { ...item, checked: !item.checked } : item)
     setitems(listitems)
   }
 
+  //Handeling delect system
   const handelDelect = (id) => {
     const delectitems = items.filter((item) =>
       item.id !== id)
