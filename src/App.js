@@ -4,6 +4,7 @@ import Header from './Header';
 import React, { useEffect, useState } from 'react'
 import Additem from './Additem';
 import Searchitems from './Searchitems';
+import Apirequest from './Apirequest';
 
 function App() {
   //API Request
@@ -39,7 +40,7 @@ function App() {
     }
     setTimeout(()=>{
       (async()=> await feacting())()
-    },5000)
+    },1000)
   }, [])
     //local 
     // [
@@ -57,32 +58,47 @@ function App() {
     //   ]
 
     //Loding Code
-
   //setitems (usestate value);
-  const addnewitem = (item) => {
+
+  const additem =async (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
-    const addnewitems = { id, checked: false, item }
+    const addnewitems = { id,checked:false,item}
     const listnewitems = [...items, addnewitems]
     setitems(listnewitems)
+
+  //Api post Handing system
+
+  const postObject={
+    method:'POST',
+    header:{
+      'Content':'application/json'
+    },
+    body:JSON.stringify(addnewitems)
+   }
+
+   const result= await Apirequest(API_ADD,postObject);
+   if(result) setfeacherr(result);
   }
+
+  //Handing system
   const handelsubmit = (e) => {
     e.preventDefault()
     if (!newitems) return;
-    addnewitem(newitems)
+    additem(newitems)
     setnewitems('')
   }
+
   const handleCheck = (id) => {
     const listitems = items.map((item) =>
-      item.id === id ? { ...item, checked: !item.checked } : item
-    )
+      item.id === id ? { ...item, checked: !item.checked } : item)
     setitems(listitems)
   }
+
   const handelDelect = (id) => {
     const delectitems = items.filter((item) =>
       item.id !== id)
     setitems(delectitems)
   }
-
 
   return (
     <div className='text-black dark:text-white absolute bg-slate-950'>
