@@ -6,6 +6,7 @@ import Post from "./Post";
 import Postpage from "./Postpage";
 import Navbar from "./Navbar";
 import Missing from "./Missing";
+import Postlayout from "./Postlayout";
 // import Footer from "./Footer";
 // import Header from "./Header";
 // import Home from "./Home";
@@ -18,7 +19,7 @@ function App() {
         <Route path="/Home" element={<Home/>}/>
         <Route path="/newpost" element={<Newpost/>}/>
         <Route path="/about" element={<About/>}/>
-        <Route path="/postpage">
+        <Route path="/postpage" element={<Postlayout/>}>
           <Route index element={<Postpage/>}/>
           <Route path=":id" element={<Post/>}/>
           <Route path="Newpost" element={<Newpost/>}/>
