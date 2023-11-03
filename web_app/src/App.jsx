@@ -12,7 +12,7 @@ import Missing from "./Missing";
 // import Postpage from "./Postpage";
 function App() {
   return (
-    <div className=" w-screen h-screen ">
+    <div className=" w-screen h-screen bg-white text-black dark:bg-black dark:text-white">
       <Navbar/>
       <Routes>
         <Route path="/Home" element={<Home/>}/>
