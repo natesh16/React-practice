@@ -1,9 +1,11 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-const Post = () => {
-    const {id}=useParams()
+const Post = ({Post}) => {
   return (
-    <div>Post {id}</div>
+    <article className="">
+      <p>{Post.title}</p>
+      <p>{(Post.notes).length >=25 ? 
+      Post.notes
+      : `${(Post.notes).slice(0.25)}`}</p>
+    </article>
   )
 }
 
