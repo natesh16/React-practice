@@ -1,9 +1,13 @@
 import React from 'react'
-const Postpage = () => {
+import Feed from './Feed'
+const Postpage = ({posts}) => {
   return (
     <main>
-        <h1 className='text-3xl'>Postpage</h1>
-
+      {posts.length ? (
+         <Feed posts={posts}/>
+      ):(
+        <p>NO POST HAS BEEN FOUND!</p>
+    )}
     </main>
   )
 }

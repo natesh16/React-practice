@@ -13,7 +13,7 @@ import { useState } from "react";
 // import Home from "./Home";
 // import Postpage from "./Postpage";
 function App() {
-  const [post,setpost] = useState([
+  const [posts,setpost] = useState([
     {
       id:1,
       title: "First post",
@@ -44,12 +44,13 @@ function App() {
   const [searchresult,setsearchresult]=useState([])
     
   return (
-    <div className=" w-screen h-screen bg-white text-black dark:bg-black dark:text-white">
+    <div className=" w-screen h-screen max-h-full bg-white text-black dark:bg-black dark:text-white ">
       <Navbar 
         title={"Nest.org"}
         search={search}
         setsearch={setsearch}
-      />
+        />
+      <Postpage posts={posts}/>
       <Routes>
       <Route path="/" element={<Home/>}/>
         <Route path="/Home" element={<Home/>}/>
@@ -65,7 +66,6 @@ function App() {
       {/* <Header/>
       <Home/>
       <Newpost/>
-      <Postpage/>
       <About/>
       <Missing/>
       <Footer/> */}
