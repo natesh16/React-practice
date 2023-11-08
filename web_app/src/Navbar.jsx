@@ -20,9 +20,9 @@ const Navbar = ({search,setsearch,title}) => {
             </form>
             <ul className=" my-auto flex justify-evenly w-full">
               <li><Link to="Home" className="my-auto hover:text-sky-500 ">Home</Link></li>
+              <li><Link to="postpage" className=" my-auto hover:text-sky-500 ">Postpage</Link></li>
               <li><Link to="newpost" className=" my-auto hover:text-sky-500 ">Newpost</Link></li>
               <li><Link to="about" className=" my-auto hover:text-sky-500 ">About</Link></li>
-              <li><Link to="postpage" className=" my-auto hover:text-sky-500 ">Postpage</Link></li>
             </ul>
           </div>
       </nav>
