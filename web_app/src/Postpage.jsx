@@ -2,7 +2,7 @@ import React from 'react'
 import Feed from './Feed'
 const Postpage = ({posts}) => {
   return (
-    <main className='h-screen w-screen flex'>
+    <main className='min-h-screen w-screen max-h-full '>
       {posts.length ? (
          <Feed posts={posts}/>
       ):(
