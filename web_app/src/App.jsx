@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Newpost from "./Newpost";
-import About from "./About";
 import Post from "./Post";
 import Postpage from "./Postpage";
 import Navbar from "./Navbar";
@@ -72,26 +71,26 @@ function App() {
       <Postpage 
         posts={searchresult} 
       />
-      <Newpost
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/newpost" element={<Newpost
         postbody={postbody}
         posttitle={posttitle}
         setpostbody={setpostbody}
         setposttitem={setposttitem}
         handlesubmite={handlesubmite}
-      />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/newpost" element={<Newpost />} />
-        <Route path="/about" element={<About />} />
+        />} />
         <Route path="/postpage" element={<Postlayout />}>
           <Route index element={<Postpage />} />
           <Route path=":id" element={<Post />} />
-          <Route path="Newpost" element={<Newpost />} />
         </Route>
         <Route path="*" element={<Missing />} />
       </Routes>
       {/* <Header/>
+      <Newpost
+        
+      />
       <Home/>
       <About/>
       <Missing/>
