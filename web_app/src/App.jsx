@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
+import Postbody from "./Postbody";
 import About from "./About"; 
 import Newpost from "./Newpost";
 import Post from "./Post";
@@ -78,7 +79,7 @@ function App() {
         <Route path="/About" element={<About/>}/>
         <Route path="*" element={<Missing />} />
        
-        <Route path="/Postpage">
+        <Route path="/Postbody">
            <Route index element={<Postpage posts={searchresult} 
           />}/>
             <Route path=":id" element={<Post
@@ -93,7 +94,6 @@ function App() {
               setposttitem={setposttitem}
               handlesubmite={handlesubmite}
             />} />
-          <Route element={<Post />}/>
         </Route>
       </Routes>
       {/* <Header/>
