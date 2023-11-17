@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
+import About from "./About"; 
 import Newpost from "./Newpost";
 import Post from "./Post";
 import Postpage from "./Postpage";
 import Navbar from "./Navbar";
 import Missing from "./Missing";
-import Postlayout from "./Postlayout";
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
 
@@ -42,6 +42,10 @@ function App() {
   const [postbody,setpostbody] = useState('');
   const [searchresult,setsearchresult] = useState([]);
   
+  const handellog=(e)=>{
+    console.log("HELLO WORLD!")
+  }
+
   useEffect(() => {
     const filteresult = posts.filter((post) =>
       ((post.notes).toLowerCase()).includes(search.toLowerCase()) ||
@@ -68,31 +72,36 @@ function App() {
         search={search}
         setsearch={setsearch}
       />
-      <Postpage 
-        posts={searchresult} 
-      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home />} />
-        <Route path="/newpost" element={<Newpost
-        postbody={postbody}
-        posttitle={posttitle}
-        setpostbody={setpostbody}
-        setposttitem={setposttitem}
-        handlesubmite={handlesubmite}
-        />} />
-        <Route path="/postpage" element={<Postlayout />}>
-          <Route index element={<Postpage />} />
-          <Route path=":id" element={<Post />} />
-        </Route>
+        <Route path="/About" element={<About/>}/>
         <Route path="*" element={<Missing />} />
+       
+        <Route path="/Postpage">
+           <Route index element={<Postpage posts={searchresult} 
+          />}/>
+            <Route path=":id" element={<Post
+              handellog={handellog}
+            />} />
+        </Route>
+        <Route path="/Post">
+            <Route index element={<Newpost
+              postbody={postbody}
+              posttitle={posttitle}
+              setpostbody={setpostbody}
+              setposttitem={setposttitem}
+              handlesubmite={handlesubmite}
+            />} />
+          <Route element={<Post />}/>
+        </Route>
       </Routes>
       {/* <Header/>
       <Newpost
         
       />
-      <Home/>
       <About/>
+      <Home/>
       <Missing/>
       <Footer/> */}
     </div>

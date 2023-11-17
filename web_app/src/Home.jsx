@@ -1,8 +1,8 @@
 import React from 'react'
 const Home = () => {
   return (
-    <div>
-        {/* <h1>Home</h1> */}
+    <div className='flex h-screen'>
+        <h1 className='mx-auto my-auto text-6xl'>WELCOME</h1>
     </div>
   )
 }
