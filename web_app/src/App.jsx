@@ -84,7 +84,7 @@ function App() {
            <Route index element={<Postpage posts={searchresult} 
           />}/>
         </Route>
-        <Route path="/">
+        <Route path="/post">
             <Route index element={<Newpost
               postbody={postbody}
               posttitle={posttitle}
@@ -94,7 +94,6 @@ function App() {
               />} />
             <Route path=":id" element={<Postbody
               posts={posts}
-              handellog={handellog}
               />} />
         </Route>
       </Routes>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams,Link } from 'react-router-dom'
 const Postbody = ({posts}) => {
   const { id }=useParams();
   const post=posts.find(post => (post.id).toString() === id)
