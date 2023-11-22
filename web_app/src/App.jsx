@@ -3,7 +3,6 @@ import Home from "./Home";
 import Postbody from "./Postbody";
 import About from "./About"; 
 import Newpost from "./Newpost";
-import Post from "./Post";
 import Postpage from "./Postpage";
 import Navbar from "./Navbar";
 import Missing from "./Missing";
@@ -75,25 +74,28 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/About" element={<About/>}/>
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About/>}/>
         <Route path="*" element={<Missing />} />
+        <Route path="/newpost" element={<Newpost />} />
+
        
-        <Route path="/Postbody">
+        <Route path="/postpage">
            <Route index element={<Postpage posts={searchresult} 
           />}/>
-            <Route path=":id" element={<Post
-              handellog={handellog}
-            />} />
         </Route>
-        <Route path="/Post">
+        <Route path="/">
             <Route index element={<Newpost
               postbody={postbody}
               posttitle={posttitle}
               setpostbody={setpostbody}
               setposttitem={setposttitem}
               handlesubmite={handlesubmite}
-            />} />
+              />} />
+            <Route path=":id" element={<Postbody
+              posts={posts}
+              handellog={handellog}
+              />} />
         </Route>
       </Routes>
       {/* <Header/>

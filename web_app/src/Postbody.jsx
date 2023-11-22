@@ -1,8 +1,21 @@
 import React from 'react'
-
-const Postbody = () => {
+import { useParams } from 'react-router-dom'
+const Postbody = ({posts}) => {
+  const { id }=useParams();
+  const post=posts.find(post => (post.id).toString() === id)
   return (
-    <div>Postbody</div>
+  <main>
+    <>
+    {post &&
+           <h1>{posts.id}</h1>
+          },
+          </>
+    {!post &&
+    <>
+        <h1>POST NOT FOUND!</h1>
+    </>
+      }
+    </main>
   )
 }
 
