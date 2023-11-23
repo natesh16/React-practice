@@ -78,23 +78,22 @@ function App() {
         <Route path="/about" element={<About/>}/>
         <Route path="*" element={<Missing />} />
         <Route path="/newpost" element={<Newpost />} />
-
-       
+        
         <Route path="/postpage">
-           <Route index element={<Postpage posts={searchresult} 
-          />}/>
+          <Route index element={<Postpage posts={searchresult} 
+        />}/>
         </Route>
         <Route path="/post">
-            <Route index element={<Newpost
-              postbody={postbody}
-              posttitle={posttitle}
-              setpostbody={setpostbody}
-              setposttitem={setposttitem}
-              handlesubmite={handlesubmite}
-              />} />
-            <Route path=":id" element={<Postbody
-              posts={posts}
-              />} />
+          <Route index element={<Newpost
+            postbody={postbody}
+            posttitle={posttitle}
+            setpostbody={setpostbody}
+            setposttitem={setposttitem}
+            handlesubmite={handlesubmite}
+          />} />
+          <Route path=":id" element={<Postbody
+            post={posts}
+          />} />
         </Route>
       </Routes>
       {/* <Header/>
